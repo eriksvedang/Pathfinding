@@ -58,7 +58,7 @@ namespace Pathfinding_Tests
         {
            // Console.WriteLine("x" + x + ", y" + y);
             TileNode t = null;
-            if (!_tiles.TryGetValue(BitCruncher.PackTwo(x, y), out t))
+            if (!_tiles.TryGetValue(BitCruncher.PackTwoShorts(x, y), out t))
                 return TileType.NOT_SET;
             return t.type;
         }
@@ -70,7 +70,7 @@ namespace Pathfinding_Tests
         {
             // Console.WriteLine("x" + x + ", y" + y);
             TileNode t = null;
-            _tiles.TryGetValue(BitCruncher.PackTwo(x, y), out t);
+            _tiles.TryGetValue(BitCruncher.PackTwoShorts(x, y), out t);
             return t;
         }
 

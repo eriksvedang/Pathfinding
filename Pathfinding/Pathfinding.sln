@@ -7,11 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pathfinding_Tests", "..\Pat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameTypes", "..\..\GameTypes\GameTypes\GameTypes.csproj", "{EC63C4E3-C5B8-4EB1-90CD-2D2FC17801BD}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{41392D1D-438E-4F62-85C2-67827F8E7E39}"
-	ProjectSection(SolutionItems) = preProject
-		Pathfinding.vsmdi = Pathfinding.vsmdi
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,8 +25,6 @@ Global
 		{EC63C4E3-C5B8-4EB1-90CD-2D2FC17801BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC63C4E3-C5B8-4EB1-90CD-2D2FC17801BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC63C4E3-C5B8-4EB1-90CD-2D2FC17801BD}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = ..\Pathfinding_Tests\Pathfinding_Tests.csproj

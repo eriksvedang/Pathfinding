@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using Pathfinding;
 using GameTypes;
+
 namespace Pathfinding
 {
     public class TileNode : IPathNode
