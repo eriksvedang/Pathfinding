@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-
-
 using Pathfinding;
+using GameTypes;
+
 namespace Pathfinding_Tests
 {
     public class SampleNode : IPathNode
@@ -50,7 +50,7 @@ namespace Pathfinding_Tests
 
         #region IPoint Members
 
-        public float DistanceTo(IPoint pPoint)
+        public float DistanceTo(GameTypes.IPoint pPoint)
         {
             if (pPoint is SampleNode)
             {

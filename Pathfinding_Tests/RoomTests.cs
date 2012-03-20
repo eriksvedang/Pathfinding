@@ -22,7 +22,7 @@ namespace Pathfinding_Tests
         {
 
             Room[] rooms = LoadFromFile();
-            PrintWorld(rooms, Path<TileNode>.Empty );
+            PrintWorld(rooms, Path<TileNode>.EMPTY );
             TileNode start = null, goal = null;
             foreach (Room r in rooms)
             {
@@ -45,7 +45,7 @@ namespace Pathfinding_Tests
         public void FindPathInOneRoom()
         {
             Room[] rooms = LoadFromFile();
-            PrintWorld(rooms, Path<TileNode>.Empty);
+            PrintWorld(rooms, Path<TileNode>.EMPTY);
             TileNode start = null, goal = null;
             foreach (Room r in rooms)
             {
@@ -66,7 +66,7 @@ namespace Pathfinding_Tests
             PathSolver<TileNode> solver = new PathSolver<TileNode>();
             MultiRoomNetwork roomNetwork = new MultiRoomNetwork(rooms);
             var foundPath = solver.FindPath(start, goal, roomNetwork);
-            Assert.AreEqual(PathStatus.FOUND_GOAL, foundPath.pathStatus);
+            Assert.AreEqual(PathStatus.FOUND_GOAL, foundPath.status);
             PrintWorld(rooms, foundPath);
         }
 
@@ -74,7 +74,7 @@ namespace Pathfinding_Tests
         public void FindPathManyRooms()
         {
             Room[] rooms = LoadFromFile();
-            PrintWorld(rooms, Path<TileNode>.Empty);
+            PrintWorld(rooms, Path<TileNode>.EMPTY);
             TileNode start = null, goal = null;
             foreach (Room r in rooms)
             {
@@ -95,7 +95,7 @@ namespace Pathfinding_Tests
             PathSolver<TileNode> solver = new PathSolver<TileNode>();
             MultiRoomNetwork roomNetwork = new MultiRoomNetwork(rooms);
             var foundPath = solver.FindPath(start, goal, roomNetwork);
-            Assert.AreEqual(PathStatus.FOUND_GOAL, foundPath.pathStatus);
+            Assert.AreEqual(PathStatus.FOUND_GOAL, foundPath.status);
             PrintWorld(rooms, foundPath);
         }
 		
@@ -103,7 +103,7 @@ namespace Pathfinding_Tests
         public void FindImpossiblePath()
         {
             Room[] rooms = LoadFromFile();
-            PrintWorld(rooms, Path<TileNode>.Empty);
+            PrintWorld(rooms, Path<TileNode>.EMPTY);
             TileNode start = null, goal = null;
             foreach (Room r in rooms)
             {
@@ -124,7 +124,7 @@ namespace Pathfinding_Tests
             PathSolver<TileNode> solver = new PathSolver<TileNode>();
             MultiRoomNetwork roomNetwork = new MultiRoomNetwork(rooms);
             var foundPath = solver.FindPath(start, goal, roomNetwork);
-            Assert.AreEqual(PathStatus.DESTINATION_UNREACHABLE, foundPath.pathStatus);
+            Assert.AreEqual(PathStatus.DESTINATION_UNREACHABLE, foundPath.status);
             PrintWorld(rooms, foundPath);
         }
 		

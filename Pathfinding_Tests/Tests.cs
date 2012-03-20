@@ -76,7 +76,7 @@ namespace Pathfinding_Tests
             IPathNode start = network.GetNode(0, 0);
             IPathNode goal = network.GetNode(0, 0);
             Path<SampleNode> p = solver.FindPath(start, goal, network);
-            Assert.AreEqual(PathStatus.ALREADY_THERE, p.pathStatus);
+            Assert.AreEqual(PathStatus.ALREADY_THERE, p.status);
         }
         [Test]
         public void DiagonalFind()
@@ -85,7 +85,7 @@ namespace Pathfinding_Tests
             IPathNode start = network.GetNode(0, 0);
             IPathNode goal = network.GetNode(9, 9);
             Path<SampleNode> p = solver.FindPath(start, goal, network);
-            Assert.AreEqual(PathStatus.FOUND_GOAL, p.pathStatus);
+            Assert.AreEqual(PathStatus.FOUND_GOAL, p.status);
             Assert.AreEqual(18, (int)p.pathLength); 
         }
 
@@ -119,7 +119,7 @@ namespace Pathfinding_Tests
             IPathNode goal = network.GetNode(9, 9);
             Path<SampleNode> p = solver.FindPath(start, goal, network);
             PrintPath(p);
-            Assert.AreEqual(PathStatus.FOUND_GOAL, p.pathStatus);
+            Assert.AreEqual(PathStatus.FOUND_GOAL, p.status);
             Assert.AreEqual(25,(int)p.nodes.Length);
             Assert.AreEqual(mazeResult,BuildPathString(p));
         }

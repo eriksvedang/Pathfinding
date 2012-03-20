@@ -53,6 +53,18 @@ namespace Pathfinding_Tests
             }
             return null;
         }
+		public void AddLink(PathLink pLink) 
+        {
+            List<PathLink> newLinks = links == null ? new List<PathLink>():new List<PathLink>(links);
+            newLinks.Add(pLink);
+            links = newLinks.ToArray();
+        }
+        public void RemoveLink(PathLink pLink)
+        {
+            List<PathLink> newLinks = links == null ? new List<PathLink>() : new List<PathLink>(links);
+            newLinks.Remove(pLink);
+            links = newLinks.ToArray();
+        }
 
         #endregion
 
