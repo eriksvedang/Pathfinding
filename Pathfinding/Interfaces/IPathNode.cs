@@ -1,39 +1,54 @@
 ﻿using System;
 using System.Collections.Generic;
+
 namespace Pathfinding
 {
     public interface IPathNode : IPoint, IComparable
     {
-        float baseCost
-        {
+        float baseCost {
             get;
         }
-        float pathCostHere
-        {
-            get;
-            set;
-        }
-        float distanceToGoal
-        {
+
+        float pathCostHere {
             get;
             set;
         }
-        bool isStartNode
-        {
+
+        float distanceToGoal {
             get;
             set;
         }
-        bool isGoalNode
-        {
+
+        bool isStartNode {
+            get;
+            set;
+        }
+
+        bool isGoalNode {
             set;
             get;
         }
+
         void AddLink(PathLink pLink);
+
         void RemoveLink(PathLink pLink);
-        List<PathLink> links{get;}
+
+        List<PathLink> links {
+            get;
+        }
+
         PathLink GetLinkTo(IPathNode pNode);
-        PathLink linkLeadingHere { get; set; }
-        bool visited { get; set; }
+
+        PathLink linkLeadingHere {
+            get;
+            set;
+        }
+
+        bool visited {
+            get;
+            set;
+        }
+
         long GetUniqueID();
     }
 }
