@@ -6,3 +6,6 @@
 *.json
 *.xml
 test-results
+
+GameTypes.dll
+Pathfinding.dll
