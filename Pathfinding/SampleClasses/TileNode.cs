@@ -10,9 +10,15 @@ namespace Pathfinding
 {
     public class TileNode : IPathNode
     {
+		const int NR_OF_LINKS = 5;
+		
+        private PathLink[] _links;
+        private int _linkInsertPosition;
+
         public TileNode(IntPoint pLocalPoint)
         {
-            links = new List<PathLink>(5);
+            _links = new PathLink[NR_OF_LINKS];
+            _linkInsertPosition = 0;
             localPoint = pLocalPoint;
         }
 
@@ -66,31 +72,67 @@ namespace Pathfinding
             set;
         }
         
-        public List<PathLink> links {
-            get;
-            set;
+        public PathLink[] links {
+            get {
+                return _links;
+            }
+            set {
+                _links = value;
+            }
         }
         
         public void AddLink(PathLink pLink)
         {
-            links.Add(pLink);
+			if(_linkInsertPosition < NR_OF_LINKS) {
+            	_links[_linkInsertPosition++] = pLink;
+			}
+			else {
+				for(int i = 0; i < _links.Length; i++) {
+	                if(_links[i] == null) {
+	                    _links[i] = pLink;
+						return;
+	                }
+				}
+				throw new Exception("Can't find free place in _links");
+			}
         }
 
         public void RemoveLink(PathLink pLink)
         {
-            links.Remove(pLink);
+            for(int i = 0; i < _links.Length; i++) {
+                if(_links[i] == pLink) {
+                    _links[i] = null;
+					return;
+                }
+            }
         }
         
         public PathLink GetLinkTo(IPathNode pNode)
         {
-            if (links != null) {
-                foreach (PathLink p in links) {
-                    if (p.Contains(pNode)) {
-                        return p;
-                    }
+			/*
+            foreach (PathLink p in links) {
+                if (p != null && p.Contains(pNode)) {
+                    return p;
                 }
-            }
+            }*/
+			
+			// OPTIMIZATION OF PREVIOUS CODE:
+			
+			PathLink p = _links[0];
+			if(p != null && p.Contains(pNode)) return p;
             
+			p = _links[1];
+			if(p != null && p.Contains(pNode)) return p;
+			
+			p = _links[2];
+			if(p != null && p.Contains(pNode)) return p;
+			
+			p = _links[3];
+			if(p != null && p.Contains(pNode)) return p;
+			
+			p = _links[4];
+			if(p != null && p.Contains(pNode)) return p;
+			
             return null;
         }
         

@@ -47,6 +47,8 @@ namespace Pathfinding
             
             while (pathResult == PathStatus.NOT_CALCULATED_YET) {
                 foreach (PathLink l in currentNode.links) {
+					if(l == null) continue;
+					
                     IPathNode otherNode = l.GetOtherNode(currentNode);
                     
                     if (!otherNode.visited) {

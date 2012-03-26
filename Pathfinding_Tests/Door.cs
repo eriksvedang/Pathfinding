@@ -25,7 +25,7 @@ namespace Pathfinding_Tests
         public Door target {
             set {
                 //check for link duplicates
-                for (int i = links.Count - 1; i >= 0; i--) {
+                for (int i = links.Length - 1; i >= 0; i--) {
                     PathLink l = links[i];
                     Door d = l.GetOtherNode(this) as Door;
                     
@@ -35,12 +35,12 @@ namespace Pathfinding_Tests
                 }
                 
                 //we should remove any old links to other doors
-                for (int i = links.Count - 1; i >= 0; i--) {
+                for (int i = links.Length - 1; i >= 0; i--) {
                     PathLink l = links[i];
                     Door d = l.GetOtherNode(this) as Door;
                     
                     if (d != null && d.room != this.room) {
-                        links.RemoveAt(i);
+                        links[i] = null;
                     }
                 }
                 
@@ -52,7 +52,7 @@ namespace Pathfinding_Tests
                 }
                 
                 Console.WriteLine("added link between " + (pl.nodeA as Door).name);
-                links.Add(pl);
+                AddLink(pl);
             }
             
             get {

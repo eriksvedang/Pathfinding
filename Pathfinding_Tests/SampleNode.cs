@@ -82,12 +82,15 @@ namespace Pathfinding_Tests
             }
         }
 
-        public List<PathLink> links {
+        public PathLink[] links {
             get {
-                return _links;
+                return _links.ToArray();
             }
             set {
-                _links = value;
+                _links = new List<PathLink>();
+                foreach(PathLink p in value) {
+                    _links.Add(p);
+                }
             }
         }
 

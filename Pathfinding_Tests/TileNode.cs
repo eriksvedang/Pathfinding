@@ -77,12 +77,15 @@ namespace Pathfinding_Tests
             set;
         }
 
-        public List<PathLink> links {
+        public PathLink[] links {
             get {
-                return _links;
+                return _links.ToArray();
             }
             set {
-                _links = value;
+                _links = new List<PathLink>();
+                foreach(PathLink p in value) {
+                    _links.Add(p);
+                }
             }
         }
 
@@ -112,16 +115,12 @@ namespace Pathfinding_Tests
 
         public void AddLink(PathLink pLink)
         {
-            List<PathLink> newLinks = links == null ? new List<PathLink>() : new List<PathLink>(links);
-            newLinks.Add(pLink);
-            links = newLinks;
+            _links.Add(pLink);
         }
 
         public void RemoveLink(PathLink pLink)
         {
-            List<PathLink> newLinks = links == null ? new List<PathLink>() : new List<PathLink>(links);
-            newLinks.Remove(pLink);
-            links = newLinks;
+            _links.Remove(pLink);
         }
         
         #endregion

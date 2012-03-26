@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Pathfinding
 {
-    public class PathLink : IEnumerable<IPathNode>
+    public class PathLink
     {
         public float distance;
         public IPathNode nodeA;
@@ -92,7 +92,8 @@ namespace Pathfinding
                 return 2;
             }
         }
-
+		
+		/*
         public IEnumerator<IPathNode> GetEnumerator()
         {
             yield return nodeA;
@@ -104,5 +105,6 @@ namespace Pathfinding
             yield return nodeA;
             yield return nodeB;
         }
+        */
     }
 }

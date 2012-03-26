@@ -38,7 +38,7 @@ namespace Pathfinding
 
         void RemoveLink(PathLink pLink);
 
-        List<PathLink> links {
+        PathLink[] links {
             get;
         }
 

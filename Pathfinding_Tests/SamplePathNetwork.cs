@@ -15,7 +15,6 @@ namespace Pathfinding_Tests
         
         internal SamplePathNetwork(string data)
         {
-        
             string[] values = data.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
             
             //Console.WriteLine("value count " + values.Length);
@@ -50,8 +49,6 @@ namespace Pathfinding_Tests
                 }
                 
             }
-            
-            
         }
 
         private void AddNode(SampleNode pA, SampleNode pB)
@@ -63,8 +60,8 @@ namespace Pathfinding_Tests
             }
             
             l.distance = 1f;
-            pA.links.Add(l);
-            pB.links.Add(l);
+            pA.AddLink(l);
+            pB.AddLink(l);
         }
 
         internal bool TryGetNode(int pX, int pY, out SampleNode outputNode)
