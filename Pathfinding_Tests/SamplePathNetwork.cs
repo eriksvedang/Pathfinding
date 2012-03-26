@@ -23,7 +23,7 @@ namespace Pathfinding_Tests
             
                 SampleNode n = new SampleNode(i % 10, i / 10);
                 n.number = Convert.ToInt32(values[i]);
-                _nodes.Add((int)n.x + (int)n.y * 1000, n);
+                _nodes.Add((int)n.localPoint.x + (int)n.localPoint.y * 1000, n);
             }
             
             for (int i = 0; i < 100; i++) {

@@ -46,7 +46,7 @@ namespace Pathfinding_Tests
         private bool IsInPath(Path<SampleNode> pPath, int x, int y)
         {
             foreach (SampleNode n in pPath.nodes) {
-                if (x == (int)n.x && y == (int)n.y) {
+                if (x == (int)n.localPoint.x && y == (int)n.localPoint.y) {
                     return true;
                 }
             }
@@ -65,13 +65,13 @@ namespace Pathfinding_Tests
             "0,0,0,0,0,0,0,0,0,0," +
             "0,0,0,0,0,0,0,0,0,0," +
             "0,0,0,0,0,0,0,0,0,0,";
+
         PathSolver<SampleNode> solver = null;
         SamplePathNetwork network = null;
 
         [SetUp]
         public void Setup()
         {
-        
             solver = new PathSolver<SampleNode>();
         }
         
@@ -82,6 +82,7 @@ namespace Pathfinding_Tests
             IPathNode start = network.GetNode(0, 0);
             IPathNode goal = network.GetNode(0, 0);
             Path<SampleNode> p = solver.FindPath(start, goal, network);
+
             Assert.AreEqual(PathStatus.ALREADY_THERE, p.status);
         }
 
@@ -92,6 +93,7 @@ namespace Pathfinding_Tests
             IPathNode start = network.GetNode(0, 0);
             IPathNode goal = network.GetNode(9, 9);
             Path<SampleNode> p = solver.FindPath(start, goal, network);
+
             Assert.AreEqual(PathStatus.FOUND_GOAL, p.status);
             Assert.AreEqual(18, (int)p.pathLength);
         }
@@ -110,6 +112,7 @@ namespace Pathfinding_Tests
                 "0,1,1,1,1,0,0,0,0,0," +
                 "0,0,0,0,0,0,0,0,0,0," +
                 "0,0,0,0,0,1,1,1,0,0,";
+
             const string mazeResult =
                 "x,x,x,x,0,0,0,0,0,0," +
                 "0,0,0,x,0,0,0,0,0,0," +
@@ -121,11 +124,14 @@ namespace Pathfinding_Tests
                 "x,0,0,0,0,0,0,0,0,0," +
                 "x,x,x,x,x,x,x,x,x,x," +
                 "0,0,0,0,0,0,0,0,0,x,";
+
             network = new SamplePathNetwork(maze);
+
             IPathNode start = network.GetNode(0, 0);
             IPathNode goal = network.GetNode(9, 9);
             Path<SampleNode> p = solver.FindPath(start, goal, network);
             PrintPath(p);
+
             Assert.AreEqual(PathStatus.FOUND_GOAL, p.status);
             Assert.AreEqual(25, (int)p.nodes.Length);
             Assert.AreEqual(mazeResult, BuildPathString(p));

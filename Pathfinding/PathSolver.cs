@@ -12,15 +12,11 @@ namespace Pathfinding
             float linkDistance = pLink.distance;
             float newPathCost = previousNode.pathCostHere + pNewNode.baseCost + linkDistance;
             
-            if (pNewNode.linkLeadingHere == null ||
-                    (pNewNode.pathCostHere > newPathCost)) {
-                    
+            if (pNewNode.linkLeadingHere == null || (pNewNode.pathCostHere > newPathCost)) {
                 pNewNode.distanceToGoal = pNewNode.DistanceTo(pGoal) * 2f;
-                
                 pNewNode.pathCostHere = newPathCost;
                 pNewNode.linkLeadingHere = pLink;
                 pNodesToVisit.Push(pNewNode);
-                
             }
         }
 
@@ -64,7 +60,8 @@ namespace Pathfinding
                 else {
                     currentNode = nodesToVisit.Pop();
                     testCount++;
-                    //    Console.WriteLine("testing new node: " + (currentNode as TileNode).localPoint);
+
+                    // Console.WriteLine("testing new node: " + (currentNode as TileNode).localPoint);
                     currentNode.visited = true;
                     
                     if (currentNode == goalNode) {
@@ -73,9 +70,9 @@ namespace Pathfinding
                 }
             }
             
-            //path finished, collect
+            // Path finished, collect
             float tLength = 0;
-            
+
             if (pathResult == PathStatus.FOUND_GOAL) {
                 tLength = currentNode.pathCostHere;
                 

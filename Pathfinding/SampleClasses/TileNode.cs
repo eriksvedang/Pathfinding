@@ -10,13 +10,12 @@ namespace Pathfinding
 {
     public class TileNode : IPathNode
     {
-    
-    
         public TileNode(IntPoint pLocalPoint)
         {
             links = new List<PathLink>(5);
             localPoint = pLocalPoint;
         }
+
         public void Reset()
         {
             distanceToGoal = 0f;
@@ -27,56 +26,47 @@ namespace Pathfinding
             visited = false;
         }
         
-        public IntPoint localPoint
-        {
+        public IntPoint localPoint {
             set;
             get;
         }
         
-        public float pathCostHere
-        {
+        public float pathCostHere {
             get;
             set;
         }
         
-        public float distanceToGoal
-        {
+        public float distanceToGoal {
             get;
             set;
         }
         
-        public float baseCost
-        {
+        public float baseCost {
             set;
             get;
         }
         
-        public bool isStartNode
-        {
+        public bool isStartNode {
             get;
             set;
         }
         
-        public bool isGoalNode
-        {
+        public bool isGoalNode {
             get;
             set;
         }
         
-        public bool visited
-        {
+        public bool visited {
             get;
             set;
         }
         
-        public PathLink linkLeadingHere
-        {
+        public PathLink linkLeadingHere {
             get;
             set;
         }
         
-        public List<PathLink> links
-        {
+        public List<PathLink> links {
             get;
             set;
         }
@@ -85,6 +75,7 @@ namespace Pathfinding
         {
             links.Add(pLink);
         }
+
         public void RemoveLink(PathLink pLink)
         {
             links.Remove(pLink);
@@ -92,9 +83,9 @@ namespace Pathfinding
         
         public PathLink GetLinkTo(IPathNode pNode)
         {
-            if(links != null) {
-                foreach(PathLink p in links) {
-                    if(p.Contains(pNode)) {
+            if (links != null) {
+                foreach (PathLink p in links) {
+                    if (p.Contains(pNode)) {
                         return p;
                     }
                 }
@@ -104,10 +95,10 @@ namespace Pathfinding
         }
         
         #region IPoint Members
-        
+
         public virtual float DistanceTo(Pathfinding.IPoint pPoint)
         {
-            if(pPoint is TileNode) {
+            if (pPoint is TileNode) {
                 TileNode otherNode = pPoint as TileNode;
                 return localPoint.EuclidianDistanceTo(otherNode.localPoint);
             }
@@ -117,6 +108,7 @@ namespace Pathfinding
         }
         
         #endregion
+
         #region IComparable Members
         
         public int CompareTo(object obj)
@@ -128,10 +120,10 @@ namespace Pathfinding
             float targetValue = target.pathCostHere + target.distanceToGoal;
             float thisValue = pathCostHere + distanceToGoal;
             
-            if(targetValue > thisValue) {
+            if (targetValue > thisValue) {
                 return 1;
             }
-            else if(targetValue == thisValue) {
+            else if (targetValue == thisValue) {
                 return 0;
             }
             else {
@@ -142,12 +134,12 @@ namespace Pathfinding
         #endregion
         
         #region IPathNode Members
+
         public virtual long GetUniqueID()
         {
             return BitCruncher.PackTwoInts(localPoint.x, localPoint.y);
         }
-        
-        
+
         #endregion
     }
 }

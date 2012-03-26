@@ -9,7 +9,8 @@ namespace Pathfinding_Tests
 {
     public class TileNode : IPathNode
     {
-    
+        private List<PathLink> _links = new List<PathLink>();
+
         #region IPathNode Members
         
         public TileNode(Room pRoom, int pX, int pY, TileType pType)
@@ -75,8 +76,6 @@ namespace Pathfinding_Tests
             get;
             set;
         }
-        
-        private List<PathLink> _links = new List<PathLink>();
 
         public List<PathLink> links {
             get {
@@ -115,14 +114,14 @@ namespace Pathfinding_Tests
         {
             List<PathLink> newLinks = links == null ? new List<PathLink>() : new List<PathLink>(links);
             newLinks.Add(pLink);
-            links = newLinks.ToArray();
+            links = newLinks;
         }
 
         public void RemoveLink(PathLink pLink)
         {
             List<PathLink> newLinks = links == null ? new List<PathLink>() : new List<PathLink>(links);
             newLinks.Remove(pLink);
-            links = newLinks.ToArray();
+            links = newLinks;
         }
         
         #endregion
@@ -170,5 +169,10 @@ namespace Pathfinding_Tests
         }
         
         #endregion
+
+        public virtual long GetUniqueID()
+        {
+            return BitCruncher.PackTwoInts(localPosition.x, localPosition.y);
+        }
     }
 }
