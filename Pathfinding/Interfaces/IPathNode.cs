@@ -29,6 +29,11 @@ namespace Pathfinding
             get;
         }
 
+        bool visited {
+            get;
+            set;
+        }
+
         void AddLink(PathLink pLink);
 
         void RemoveLink(PathLink pLink);
@@ -40,11 +45,6 @@ namespace Pathfinding
         PathLink GetLinkTo(IPathNode pNode);
 
         PathLink linkLeadingHere {
-            get;
-            set;
-        }
-
-        bool visited {
             get;
             set;
         }
