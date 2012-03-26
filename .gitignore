@@ -5,6 +5,7 @@
 *.userprefs
 *.json
 *.xml
+*.exe
 test-results
 
 GameTypes.dll
