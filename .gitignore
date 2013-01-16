@@ -6,7 +6,9 @@
 *.json
 *.xml
 *.exe
+*.pdb
+*/obj/*
+*csproj.user
 test-results
-
 GameTypes.dll
 Pathfinding.dll
