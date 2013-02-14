@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Pathfinding.Datastructures;
+using System.Threading;
 
 namespace Pathfinding
 {
@@ -87,6 +88,15 @@ namespace Pathfinding
             
             return new Path<PathNodeType>(resultNodeList.ToArray(), tLength, pathResult, testCount);
         }
-        
+
+        public delegate void PathWasFound(Path<PathNodeType> newPath);
+
+        public void FindPathAsync(IPathNode pStart, IPathNode pGoal, IPathNetwork<PathNodeType> pNetwork, PathWasFound pOnPathWasFound)
+        {
+           	//ThreadPool.QueueUserWorkItem(o => {
+                Path<PathNodeType> path = FindPath(pStart, pGoal, pNetwork);
+				pOnPathWasFound(path);
+           	//});
+        }
     }
 }

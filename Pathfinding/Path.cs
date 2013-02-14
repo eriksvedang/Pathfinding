@@ -49,5 +49,27 @@ namespace Pathfinding
             sb.Append("]");
             return sb.ToString();
         }
+
+		public override bool Equals(object pOther)
+		{
+			if(!(pOther is Path<PathNodeType>)) return false;
+			var other = (Path<PathNodeType>)pOther;
+			if(status != other.status) return false;
+			else if(pathLength != other.pathLength) return false;
+
+			for(int i = 0; i < pathLength; i++) {
+				if((System.IEquatable<PathNodeType>)nodes[i] != (System.IEquatable<PathNodeType>)other.nodes[i]) return false;
+			}
+
+			return true;
+		}
+
+		public static bool operator ==(Path<PathNodeType> a, Path<PathNodeType> b) {
+			return a.Equals(b);
+		}
+
+		public static bool operator !=(Path<PathNodeType> a, Path<PathNodeType> b) {
+			return !a.Equals(b);
+		}
     }
 }
