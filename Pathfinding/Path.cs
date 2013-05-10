@@ -17,7 +17,7 @@ namespace Pathfinding
         public PathNodeType[] nodes;
         public int pathSearchTestCount;
 
-        public Path(PathNodeType[] pNodes, float pPathLength, PathStatus pStatus, int pPathSearchTestCount)
+		public Path(PathNodeType[] pNodes, float pPathLength, PathStatus pStatus, int pPathSearchTestCount)
         {
             nodes = pNodes;
             pathLength = pPathLength;

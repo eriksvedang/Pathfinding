@@ -20,25 +20,30 @@ namespace Pathfinding
                 pNodesToVisit.Push(pNewNode);
             }
         }
-
+	
         public Path<PathNodeType> FindPath(IPathNode pStart, IPathNode pGoal, IPathNetwork<PathNodeType> pNetwork)
         {
+#if DEBUG
+			if(pNetwork == null) {
+				throw new Exception("pNetwork is null");
+			}
+#endif
+			if (pStart == null || pGoal == null) {
+				return new Path<PathNodeType>(new PathNodeType[] {}, 0f, PathStatus.DESTINATION_UNREACHABLE, 0);
+			}
+
+			if (pStart == pGoal) {
+				return new Path<PathNodeType>(new PathNodeType[] {}, 0f, PathStatus.ALREADY_THERE, 0);
+			}
+
             int testCount = 0;
             pNetwork.Reset();
             pStart.isStartNode = true;
             pGoal.isGoalNode = true;
             List<PathNodeType> resultNodeList = new List<PathNodeType>();
             
-            if (pStart == pGoal) {
-                return new Path<PathNodeType>(resultNodeList.ToArray(), 0f, PathStatus.ALREADY_THERE, testCount);
-            }
-            
             IPathNode currentNode = pStart;
             IPathNode goalNode = pGoal;
-            
-            if (currentNode == null || pGoal == null) {
-                return new Path<PathNodeType>(resultNodeList.ToArray(), 0f, PathStatus.DESTINATION_UNREACHABLE, testCount);
-            }
             
             currentNode.visited = true;
             currentNode.linkLeadingHere = null;
