@@ -21,7 +21,7 @@ namespace Pathfinding
             }
         }
 	
-        public Path<PathNodeType> FindPath(IPathNode pStart, IPathNode pGoal, IPathNetwork<PathNodeType> pNetwork)
+        public Path<PathNodeType> FindPath(IPathNode pStart, IPathNode pGoal, IPathNetwork<PathNodeType> pNetwork, bool pReset)
         {
 #if DEBUG
 			if(pNetwork == null) {
@@ -37,7 +37,11 @@ namespace Pathfinding
 			}
 
             int testCount = 0;
-            pNetwork.Reset();
+			
+			if(pReset) {
+            	pNetwork.Reset();
+			}
+			
             pStart.isStartNode = true;
             pGoal.isGoalNode = true;
             List<PathNodeType> resultNodeList = new List<PathNodeType>();
@@ -93,15 +97,17 @@ namespace Pathfinding
             
             return new Path<PathNodeType>(resultNodeList.ToArray(), tLength, pathResult, testCount);
         }
-
+		
+		/*
         public delegate void PathWasFound(Path<PathNodeType> newPath);
 
-        public void FindPathAsync(IPathNode pStart, IPathNode pGoal, IPathNetwork<PathNodeType> pNetwork, PathWasFound pOnPathWasFound)
+        public void FindPathAsync(IPathNode pStart, IPathNode pGoal, IPathNetwork<PathNodeType> pNetwork, PathWasFound pOnPathWasFound, bool pReset)
         {
            	//ThreadPool.QueueUserWorkItem(o => {
-                Path<PathNodeType> path = FindPath(pStart, pGoal, pNetwork);
+                Path<PathNodeType> path = FindPath(pStart, pGoal, pNetwork, pReset);
 				pOnPathWasFound(path);
            	//});
         }
+        */
     }
 }
