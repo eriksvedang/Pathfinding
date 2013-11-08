@@ -1,0 +1,1 @@
+LD_LIBRARY_PATH=/Library/Frameworks/Mono.framework/Versions/Current/lib  mono --profile=log:calls,alloc,calldepth=10,output=out.mlpd,report Pathfinding_Tests.exe

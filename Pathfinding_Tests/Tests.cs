@@ -81,7 +81,7 @@ namespace Pathfinding_Tests
             network = new SamplePathNetwork(dataA);
             IPathNode start = network.GetNode(0, 0);
             IPathNode goal = network.GetNode(0, 0);
-            Path<SampleNode> p = solver.FindPath(start, goal, network);
+            Path<SampleNode> p = solver.FindPath(start, goal, network,true );
 
             Assert.AreEqual(PathStatus.ALREADY_THERE, p.status);
         }
@@ -92,7 +92,7 @@ namespace Pathfinding_Tests
             network = new SamplePathNetwork(dataA);
             IPathNode start = network.GetNode(0, 0);
             IPathNode goal = network.GetNode(9, 9);
-            Path<SampleNode> p = solver.FindPath(start, goal, network);
+            Path<SampleNode> p = solver.FindPath(start, goal, network, true);
 
             Assert.AreEqual(PathStatus.FOUND_GOAL, p.status);
             Assert.AreEqual(18, (int)p.pathLength);
@@ -129,7 +129,7 @@ namespace Pathfinding_Tests
 
             IPathNode start = network.GetNode(0, 0);
             IPathNode goal = network.GetNode(9, 9);
-            Path<SampleNode> p = solver.FindPath(start, goal, network);
+            Path<SampleNode> p = solver.FindPath(start, goal, network, true);
             PrintPath(p);
 
             Assert.AreEqual(PathStatus.FOUND_GOAL, p.status);

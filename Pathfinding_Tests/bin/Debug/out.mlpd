@@ -1,0 +1,281 @@
+
+Mono log profiler data
+	Profiler version: 0.4
+	Data version: 4
+	Mean timer overhead: 87 nanoseconds
+	Program startup: Tue Nov  5 10:24:36 2013
+	Program ID: 5465
+
+JIT summary
+	Compiled methods: 562
+	Generated code size: 124343
+
+GC summary
+	GC resizes: 0
+	Max heap size: 0
+	Object moves: 89625
+	Gen0 collections: 1, max time: 17646us, total time: 17646us, average: 17646us
+	Gen1 collections: 3, max time: 4522us, total time: 7063us, average: 2354us
+
+Allocation summary
+     Bytes      Count  Average Type name
+   9289632        310    29966 System.Int32[]
+   9026696        192    47014 System.Collections.Generic.Link[]
+   4475976        281    15928 Pathfinding_Tests.SampleNode[]
+   1998096      49961       39 Pathfinding.PathLink[]
+   1738504      75368       23 System.String
+   1176000      49000       24 Pathfinding.PathLink
+   1000000      25000       40 Pathfinding_Tests.SampleNode
+    681472      42592       16 System.Collections.Generic.Dictionary.ValueCollection<System.Int64,Pathfinding.IPathNode>
+    600000      25000       24 System.Collections.Generic.List<Pathfinding.PathLink>
+    201056         34     5913 System.String[]
+    137368        180      763 System.Int64[]
+     70608        179      394 Pathfinding.IPathNode[]
+     16160         13     1243 System.Byte[]
+      9368         27      346 System.Char[]
+      2800         50       56 System.Collections.Generic.Dictionary<System.Int64,Pathfinding.IPathNode>
+      1792        112       16 Pathfinding.PathStatus
+      1632        102       16 System.Int32
+      1600        100       16 System.Collections.Generic.Dictionary.ValueCollection<System.Int32,Pathfinding_Tests.SampleNode>
+      1200         50       24 System.Collections.Generic.List<Pathfinding_Tests.SampleNode>
+       800         50       16 Pathfinding.Datastructures.AStarStack
+       560         10       56 System.Collections.Generic.Dictionary<System.Int32,Pathfinding_Tests.SampleNode>
+       560          3      186 System.Object[]
+       432         12       36 System.Type[]
+       416          2      208 System.MonoEnumInfo[]
+       320          4       80 System.IO.FileStream
+       272          1      272 System.Array.QSortStack[]
+       240         10       24 Pathfinding_Tests.SamplePathNetwork
+       240         10       24 System.Text.StringBuilder
+       224          2      112 System.Globalization.CultureInfo
+       176          1      176 System.TermInfoDriver
+       168          3       56 System.IO.CStreamWriter
+       168          3       56 System.Reflection.MemberFilter
+       152          1      152 System.Globalization.NumberFormatInfo
+       112          2       56 System.Collections.Generic.Dictionary<System.Type,System.MonoEnumInfo>
+        96          4       24 Microsoft.Win32.SafeHandles.SafeFileHandle
+        88          1       88 System.AppDomainSetup
+        80         10        8 Pathfinding.PathSolver<Pathfinding_Tests.SampleNode>
+        72          1       72 System.AppDomain
+        72          9        8 System.Object
+        64          2       32 System.IO.SynchronizedWriter
+        64          1       64 System.IO.CStreamReader
+        64          1       64 System.OutOfMemoryException
+        64          1       64 System.NumberFormatter
+        64          1       64 System.NullReferenceException
+        64          1       64 System.StackOverflowException
+        64          1       64 System.Globalization.TextInfo
+        56          1       56 System.Text.UTF8Encoding
+        56          1       56 System.Collections.Generic.Dictionary<System.Int32,System.Globalization.DaylightTime>
+        56          1       56 System.IO.StreamReader.NullStreamReader
+        56          1       56 System.Console.InternalCancelHandler
+        48          2       24 System.Reflection.MonoGenericCMethod
+        48          3       16 System.Text.DecoderReplacementFallback
+        48          1       48 System.Runtime.Remoting.Contexts.Context
+        48          1       48 System.CurrentSystemTimeZone
+        48          2       24 System.Reflection.ConstructorInfo[]
+        48          1       48 System.Text.ASCIIEncoding
+        48          1       48 System.IO.StreamWriter
+        32          2       16 System.MonoTypeInfo
+        32          2       16 System.Text.EncoderReplacementFallback
+        32          1       32 Pathfinding.PathStatus[]
+        32          1       32 System.Globalization.DaylightTime
+        32          2       16 System.Reflection.ParameterInfo[]
+        24          1       24 System.Globalization.DaylightTime[]
+        24          1       24 System.IO.TextWriter.NullTextWriter
+        24          1       24 System.Text.UTF8Encoding.UTF8Decoder
+        24          1       24 System.TermInfoReader
+        24          1       24 System.IO.NullStream
+        24          1       24 System.Random
+        16          1       16 System.TimeSpan
+        16          1       16 System.IO.TextReader.NullTextReader
+        16          1       16 System.Security.Permissions.SecurityPermission
+        16          1       16 System.AttributeUsageAttribute
+         8          1        8 System.Collections.Generic.GenericEqualityComparer<System.Int32>
+         8          1        8 System.MonoEnumInfo.ShortComparer
+         8          1        8 System.Text.DecoderExceptionFallback
+         8          1        8 System.Text.EncoderExceptionFallback
+         8          1        8 System.Collections.Generic.GenericEqualityComparer<System.Int64>
+         8          1        8 System.Collections.Generic.EqualityComparer.DefaultComparer<System.Type>
+         8          1        8 System.DBNull
+         8          1        8 System.Reflection.Missing
+         8          1        8 System.MonoEnumInfo.LongComparer
+         8          1        8 System.MonoEnumInfo.IntComparer
+         8          1        8 System.MonoEnumInfo.SByteComparer
+Total memory allocated: 30436672 bytes in 268742 objects
+
+Method call summary
+Total(ms) Self(ms)      Calls Method name
+    4190        0         31 (wrapper runtime-invoke) object:runtime_invoke_void (object,intptr,intptr,intptr)
+    4151        3          1 Pathfinding_Tests.MainClass:Main ()
+    3986        1         10 Pathfinding_Tests.MainClass:SpeedTest (string,int,int,int)
+    3169      107         50 Pathfinding.PathSolver`1:FindPath (Pathfinding.IPathNode,Pathfinding.IPathNode,Pathfinding.IPathNetwork`1<PathNodeType>,bool)
+    2460      609      21296 Pathfinding.Datastructures.AStarStack:Pop ()
+    1420      572    2573244 System.Collections.Generic.Dictionary`2/ValueCollection/Enumerator<long, Pathfinding.IPathNode>:MoveNext ()
+     848      584    2573244 System.Collections.Generic.Dictionary`2/Enumerator<long, Pathfinding.IPathNode>:MoveNext ()
+     799        0         10 Pathfinding_Tests.SamplePathNetwork:.ctor (string,int,int)
+     778       41         10 Pathfinding_Tests.SamplePathNetwork:Setup (string,int,int)
+     492       57      98000 Pathfinding_Tests.SamplePathNetwork:AddNode (Pathfinding_Tests.SampleNode,Pathfinding_Tests.SampleNode)
+     320      320    2530652 Pathfinding_Tests.SampleNode:CompareTo (object)
+     270       96         50 Pathfinding_Tests.SamplePathNetwork:Reset ()
+     263      263    2573244 System.Collections.Generic.Dictionary`2/Enumerator<long, Pathfinding.IPathNode>:VerifyState ()
+     210       77      94930 Pathfinding.PathSolver`1:TryQueueNewTile (Pathfinding.IPathNode,Pathfinding.PathLink,Pathfinding.Datastructures.AStarStack,Pathfinding.IPathNode)
+     205       53     197871 System.Collections.Generic.List`1:Add (T)
+     163       71      98000 Pathfinding_Tests.SampleNode:GetLinkTo (Pathfinding.IPathNode)
+     145       11         10 Pathfinding_Tests.MainClass:MakeRandomMazeString (int)
+      82       16      50180 System.Collections.Generic.List`1:GrowIfNeeded (int)
+      78       51     222895 (wrapper stelemref) object:virt_stelemref_class (intptr,object)
+      77       21     100000 Pathfinding_Tests.SamplePathNetwork:TryGetNode (int,int,Pathfinding_Tests.SampleNode&)
+      73        5      25050 int:ToString ()
+      69       69     142012 (wrapper managed-to-native) object:__icall_wrapper_mono_object_new_specific (intptr)
+      68       10      25050 System.NumberFormatter:NumberToString (int,System.IFormatProvider)
+      66       26     125050 System.Collections.Generic.Dictionary`2/ValueCollection/Enumerator<int, Pathfinding_Tests.SampleNode>:MoveNext ()
+      61       12      50180 System.Collections.Generic.List`1:set_Capacity (int)
+      59       12      21296 System.Collections.Generic.Dictionary`2/ValueCollection<long, Pathfinding.IPathNode>:GetEnumerator ()
+      59       11      28819 Pathfinding.Datastructures.AStarStack:Push (Pathfinding.IPathNode)
+      58       58      51148 (wrapper managed-to-native) object:__icall_wrapper_mono_array_new_specific (intptr,int)
+      55       35     100000 System.Collections.Generic.Dictionary`2<int, Pathfinding_Tests.SampleNode>:TryGetValue (int,Pathfinding_Tests.SampleNode&)
+      52       52     456716 System.Collections.Generic.List`1/Enumerator:MoveNext ()
+      49       12      50190 System.Array:Resize<T> (T[]&,int)
+      45       18      77819 Pathfinding_Tests.SampleNode:DistanceTo (Pathfinding.IPoint)
+      45        9      25050 System.NumberFormatter:FastIntegerToString (int,System.IFormatProvider)
+      45        5      25000 System.Convert:ToInt32 (string)
+      43       30     119296 System.Collections.Generic.List`1:GetEnumerator ()
+      40        0         10 string:Split (char[],System.StringSplitOptions)
+      40        0         10 string:Split (char[],int,System.StringSplitOptions)
+      40       12      49000 Pathfinding.PathLink:.ctor (Pathfinding.IPathNode,Pathfinding.IPathNode)
+      39       11         10 string:SplitByCharacters (char[],int,bool)
+      39       27     125050 System.Collections.Generic.Dictionary`2/Enumerator<int, Pathfinding_Tests.SampleNode>:MoveNext ()
+      39        5      25000 int:Parse (string)
+      38       19      28819 System.Collections.Generic.Dictionary`2<long, Pathfinding.IPathNode>:set_Item (long,Pathfinding.IPathNode)
+      37       13      42592 System.Collections.Generic.Dictionary`2<long, Pathfinding.IPathNode>:get_Values ()
+      36       24     125230 string:CharCopy (char*,char*,int)
+      35        7      21296 System.Collections.Generic.Dictionary`2/ValueCollection/Enumerator<long, Pathfinding.IPathNode>:.ctor (System.Collections.Generic.Dictionary`2<long, Pathfinding.IPathNode>)
+      34       11      25000 string:Concat (string,string)
+      33       12      25000 int:Parse (string,bool,int&,System.Exception&)
+      30        5      25050 (wrapper managed-to-managed) string:.ctor (char[],int,int)
+      29       29     266121 Pathfinding.PathLink:GetOtherNode (Pathfinding.IPathNode)
+      28       28      75140 (wrapper managed-to-native) string:InternalAllocateStr (int)
+      27       18      77819 GameTypes.IntPoint:EuclidianDistanceTo (GameTypes.IntPoint)
+      26       26     222895 (wrapper managed-to-native) object:__icall_wrapper_mono_object_isinst (object,intptr)
+      25        8      25000 string:SubstringUnchecked (int,int)
+      25       11      21296 System.Collections.Generic.Dictionary`2<long, Pathfinding.IPathNode>:GetEnumerator ()
+      25        4      21296 Pathfinding.Datastructures.AStarStack:get_Count ()
+      24        8      25050 string:CreateString (char[],int,int)
+      24       24     217050 Pathfinding.PathLink:Contains (Pathfinding.IPathNode)
+      24       10      25000 Pathfinding_Tests.SampleNode:.ctor (int,int)
+      23       14      21296 System.Collections.Generic.Dictionary`2<long, Pathfinding.IPathNode>:Remove (long)
+      21        6      25100 Pathfinding_Tests.SamplePathNetwork:GetNode (int,int)
+      20        0         10 System.Collections.Generic.Dictionary`2<int, Pathfinding_Tests.SampleNode>:.ctor (int)
+      20        0         10 System.Collections.Generic.Dictionary`2<int, Pathfinding_Tests.SampleNode>:Init (int,System.Collections.Generic.IEqualityComparer`1<int>)
+      20        9      25000 System.Collections.Generic.Dictionary`2<int, Pathfinding_Tests.SampleNode>:Add (int,Pathfinding_Tests.SampleNode)
+      20        0         10 System.Collections.Generic.Dictionary`2<int, Pathfinding_Tests.SampleNode>:InitArrays (int)
+      19        0        100 System.Console:WriteLine (string)
+      19        0        100 System.IO.SynchronizedWriter:WriteLine (string)
+      19        0        100 System.IO.TextWriter:WriteLine (string)
+      18        5      25000 System.Text.StringBuilder:Append (string)
+      17       17     169370 Pathfinding_Tests.SampleNode:get_visited ()
+      17       12      50115 Pathfinding_Tests.SampleNode:GetUniqueID ()
+      17       17     162827 Pathfinding_Tests.SampleNode:get_pathCostHere ()
+      17       17     169370 System.Collections.Generic.List`1/Enumerator:get_Current ()
+      15       15     153819 Pathfinding_Tests.SampleNode:set_distanceToGoal (single)
+      15        1          1 System.Console:.cctor ()
+      15       15     153869 Pathfinding_Tests.SampleNode:set_linkLeadingHere (Pathfinding.PathLink)
+      15       10      25100 System.Collections.Generic.Dictionary`2<int, Pathfinding_Tests.SampleNode>:get_Item (int)
+      15       15     150101 System.Collections.Generic.GenericEqualityComparer`1<int>:GetHashCode (int)
+      14        0          1 System.DateTime:get_Now ()
+      14       14     153819 Pathfinding_Tests.SampleNode:set_pathCostHere (single)
+      14       14     146346 Pathfinding_Tests.SampleNode:set_visited (bool)
+      14       14     142825 string:memcpy4 (byte*,byte*,int)
+      13       13     125050 Pathfinding_Tests.SampleNode:set_isGoalNode (bool)
+      13       13     119296 System.Collections.Generic.List`1/Enumerator:.ctor (System.Collections.Generic.List`1<T>)
+      13        5      25001 System.Globalization.CultureInfo:get_NumberFormat ()
+      13        1          1 System.Console:SetupStreams (System.Text.Encoding,System.Text.Encoding)
+      12        8      42596 string:memcpy (byte*,byte*,int)
+      12       12     125050 System.Collections.Generic.Dictionary`2/Enumerator<int, Pathfinding_Tests.SampleNode>:VerifyState ()
+      12        5      25080 string:CharCopy (string,int,string,int,int)
+      12       12     123100 System.Collections.Generic.GenericEqualityComparer`1<int>:Equals (int,int)
+      12        0          1 System.TimeZone:get_CurrentTimeZone ()
+      11       11     125050 Pathfinding_Tests.SampleNode:set_isStartNode (bool)
+      11       11     118587 System.Collections.Generic.GenericEqualityComparer`1<long>:Equals (long,long)
+      11        0        100 System.IO.TextWriter:WriteLine ()
+      11        0        100 System.IO.CStreamWriter:Write (char[])
+      11        0          1 System.CurrentSystemTimeZone:.ctor (long)
+      11        9        100 System.IO.CStreamWriter:Write (char[],int,int)
+      10       10      94930 Pathfinding_Tests.SampleNode:get_baseCost ()
+      10        0         50 System.Enum:ToString ()
+      10        0         50 System.Enum:Format (System.Type,object,string)
+      10        0          1 System.ConsoleDriver:.cctor ()
+       9        2      25050 System.NumberFormatter:GetInstance ()
+       9        9      63888 (wrapper managed-to-native) object:__icall_wrapper_mono_gc_wbarrier_value_copy_bitmap (intptr,intptr,intptr,intptr)
+       8        8      96751 Pathfinding_Tests.SampleNode:get_linkLeadingHere ()
+       8        0          1 System.Collections.Generic.Dictionary`2<int, System.Globalization.DaylightTime>:.ctor (int)
+       8        2      25001 System.Threading.Thread:get_CurrentCulture ()
+       8        1          1 System.Collections.Generic.Dictionary`2<int, System.Globalization.DaylightTime>:Init (int,System.Collections.Generic.IEqualityComparer`1<int>)
+       8        8          1 System.ConsoleDriver:CreateTermInfoDriver (string)
+       8        8      77819 GameTypes.IntPoint:op_Subtraction (GameTypes.IntPoint,GameTypes.IntPoint)
+       8        5      25001 System.Globalization.CultureInfo:CheckNeutral ()
+       7        5      25200 System.Random:Next (int)
+       7        0        100 System.IO.CStreamWriter:Write (string)
+       7        2        100 System.IO.StreamWriter:Write (string)
+       7        1         50 System.Enum:GetName (System.Type,object)
+       7        2          1 System.Collections.Generic.EqualityComparer`1<int>:.cctor ()
+       7        0          1 System.NumberFormatter:.ctor (System.Threading.Thread)
+       6        4        152 System.IO.StreamWriter:FlushCore ()
+       6        6      50115 (wrapper stelemref) object:virt_stelemref_interface (intptr,object)
+       6        6      63888 string:memset (byte*,int,int)
+       5        5      55813 System.Collections.Generic.GenericEqualityComparer`1<long>:GetHashCode (long)
+       5        5      50115 GameTypes.BitCruncher:PackTwoInts (int,int)
+       5        3        129 System.Collections.Generic.Dictionary`2<long, Pathfinding.IPathNode>:Resize ()
+       5        5      50180 System.Collections.Generic.List`1:get_Capacity ()
+       4        4      42592 System.Collections.Generic.Dictionary`2/ValueCollection<long, Pathfinding.IPathNode>:.ctor (System.Collections.Generic.Dictionary`2<long, Pathfinding.IPathNode>)
+       4        0          1 System.Globalization.CultureInfo:ConstructCurrentCulture ()
+       4        0          1 System.Globalization.CultureInfo:ConstructInternalLocaleFromCurrentLocale (System.Globalization.CultureInfo)
+       4        4          1 (wrapper managed-to-native) System.Globalization.CultureInfo:construct_internal_locale_from_current_locale (System.Globalization.CultureInfo)
+       4        0         50 System.MonoEnumInfo:GetInfo (System.Type,System.MonoEnumInfo&)
+       3        0          2 System.Activator:CreateInstance (System.Type)
+       3        3      25050 System.Collections.Generic.List`1:.ctor ()
+       3        3          2 System.Activator:CreateInstance (System.Type,bool)
+       2        2      25001 System.Globalization.CultureInfo:get_IsNeutralCulture ()
+       2        2      25001 System.Threading.Thread:get_CurrentThread ()
+       2        2      25000 char:IsWhiteSpace (char)
+       2        2      25050 System.NumberFormatter:ResetCharBuf (int)
+       2        2      25010 GameTypes.IntPoint:.ctor (int,int)
+       2        2      25200 System.Random:Sample ()
+       2        0          1 System.MonoEnumInfo:SortEnums (System.Type,System.Array,System.Array)
+       2        2      25000 string:memcpy2 (byte*,byte*,int)
+       2        2      25082 (wrapper stelemref) object:virt_stelemref_sealed_class (intptr,object)
+       2        2      25050 System.NumberFormatter:FastAppendDigits (int,bool)
+       2        1          1 System.Array:Sort (System.Array,System.Array,System.Collections.IComparer)
+       2        2      25050 System.NumberFormatter:Release ()
+       2        2      21296 System.Collections.Generic.List`1/Enumerator:Dispose ()
+       2        2      21296 System.Collections.Generic.Dictionary`2/Enumerator<long, Pathfinding.IPathNode>:.ctor (System.Collections.Generic.Dictionary`2<long, Pathfinding.IPathNode>)
+       2        0         50 System.IO.StreamWriter:FlushBytes ()
+       2        2         50 System.IO.FileStream:Write (byte[],int,int)
+       1        1      21296 Pathfinding_Tests.SampleNode:get_links ()
+       1        0          1 System.TimeZone:GetLocalTimeDiff (System.DateTime)
+       1        0          1 (wrapper remoting-invoke-with-check) System.IO.CStreamReader:.ctor (System.IO.Stream,System.Text.Encoding)
+       1        0         50 System.IO.StreamWriter:Write (char[],int,int)
+       1        0         50 System.MonoType:IsDefined (System.Type,bool)
+       1        0          1 System.IO.CStreamReader:.ctor (System.IO.Stream,System.Text.Encoding)
+       1        0         50 System.Collections.Generic.List`1:Reverse ()
+       1        0          1 System.Globalization.CultureInfo:.cctor ()
+       1        1          1 System.DateTime:.cctor ()
+       1        0         50 System.MonoCustomAttrs:IsDefined (System.Reflection.ICustomAttributeProvider,System.Type,bool)
+       1        1          1 System.Globalization.CultureInfo:.ctor (int,bool,bool)
+       1        0         50 Pathfinding.Datastructures.AStarStack:.ctor ()
+       1        1          1 System.IO.StreamReader:.ctor (System.IO.Stream,System.Text.Encoding)
+       1        0          1 System.Text.Encoding:get_UTF8Unmarked ()
+       1        0         50 System.Collections.Generic.Dictionary`2<long, Pathfinding.IPathNode>:.ctor ()
+       1        0          1 System.Array:SortImpl (System.Array,System.Array,int,int,System.Collections.IComparer)
+Total calls: 17423559
+
+Metadata summary
+	Loaded images: 4
+
+Exception summary
+	Throws: 0
+
+Thread summary
+	Thread: 0x345a970, name: "Finalizer"
+	Thread: 0xa15f71a8, name: "Main"

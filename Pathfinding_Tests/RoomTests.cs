@@ -70,7 +70,7 @@ namespace Pathfinding_Tests
             Assert.NotNull(goal);
             PathSolver<TileNode> solver = new PathSolver<TileNode>();
             MultiRoomNetwork roomNetwork = new MultiRoomNetwork(rooms);
-            var foundPath = solver.FindPath(start, goal, roomNetwork);
+            var foundPath = solver.FindPath(start, goal, roomNetwork, true);
             Assert.AreEqual(PathStatus.FOUND_GOAL, foundPath.status);
             PrintWorld(rooms, foundPath);
         }
@@ -100,7 +100,7 @@ namespace Pathfinding_Tests
             Assert.NotNull(goal);
             PathSolver<TileNode> solver = new PathSolver<TileNode>();
             MultiRoomNetwork roomNetwork = new MultiRoomNetwork(rooms);
-            var foundPath = solver.FindPath(start, goal, roomNetwork);
+            var foundPath = solver.FindPath(start, goal, roomNetwork, true);
             Assert.AreEqual(PathStatus.FOUND_GOAL, foundPath.status);
             PrintWorld(rooms, foundPath);
         }
@@ -130,7 +130,7 @@ namespace Pathfinding_Tests
             Assert.NotNull(goal);
             PathSolver<TileNode> solver = new PathSolver<TileNode>();
             MultiRoomNetwork roomNetwork = new MultiRoomNetwork(rooms);
-            var foundPath = solver.FindPath(start, goal, roomNetwork);
+            var foundPath = solver.FindPath(start, goal, roomNetwork, true);
             Assert.AreEqual(PathStatus.DESTINATION_UNREACHABLE, foundPath.status);
             PrintWorld(rooms, foundPath);
         }

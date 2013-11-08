@@ -9,26 +9,44 @@ namespace Pathfinding_Tests
 {
     public class SamplePathNetwork : IPathNetwork<SampleNode>
     {
-        Dictionary<int, SampleNode> _nodes = new Dictionary<int, SampleNode>();
+        static int OFFSET = 10000;
+
+        Dictionary<int, SampleNode> _nodes = new Dictionary<int, SampleNode>(100000);
         IPathNode _pathStart = null;
         IPathNode _pathGoal = null;
-        
-        internal SamplePathNetwork(string data)
+
+        internal SamplePathNetwork(string data) {
+            Setup(data, 10, 10);
+        }
+
+        internal SamplePathNetwork(string data, int width, int height)
         {
-        
+            Setup(data, width, height);
+        }
+
+        static int allocCount = 0;
+
+        static void IncAlloc() {
+            allocCount++;
+            Console.WriteLine("Alloc count: " + allocCount);
+        }
+
+        internal void Setup(string data, int width, int height) {
+
             string[] values = data.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
             
             //Console.WriteLine("value count " + values.Length);
-            for (int i = 0; i < values.Length; i++) {
-            
-                SampleNode n = new SampleNode(i % 10, i / 10);
+            for (int i = 0; i < values.Length; i++)
+            {
+                SampleNode n = new SampleNode(i % height, i / width);
                 n.number = Convert.ToInt32(values[i]);
-                _nodes.Add((int)n.localPoint.x + (int)n.localPoint.y * 1000, n);
+                _nodes.Add((int)n.localPoint.x + (int)n.localPoint.y * OFFSET, n);
             }
-            
-            for (int i = 0; i < 100; i++) {
-                int x = i % 10;
-                int y = i / 10;
+
+            int size = (width * height);
+            for (int i = 0; i < size; i++) {
+                int x = i % height;
+                int y = i / width;
                 // Console.WriteLine("setting links for " + x + ", " + y + ", i " + i);
                 SampleNode start = GetNode(x, y);
                 SampleNode outputNode;
@@ -69,12 +87,12 @@ namespace Pathfinding_Tests
 
         internal bool TryGetNode(int pX, int pY, out SampleNode outputNode)
         {
-            return _nodes.TryGetValue(pX + pY * 1000, out outputNode);
+            return _nodes.TryGetValue(pX + pY * OFFSET, out outputNode);
         }
 
         public SampleNode GetNode(int pX, int pY)
         {
-            return _nodes[pX + pY * 1000];
+            return _nodes[pX + pY * OFFSET];
         }
 
         public SampleNode GetNode(IPoint pPoint)
@@ -104,6 +122,7 @@ namespace Pathfinding_Tests
                 node.visited = false;
                 node.linkLeadingHere = null;
             }
+            Console.WriteLine("Reset " + _nodes.Values.Count + " nodes");
         }
     }
 }
