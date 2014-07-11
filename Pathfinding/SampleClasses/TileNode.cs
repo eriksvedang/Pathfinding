@@ -80,6 +80,12 @@ namespace Pathfinding
         {
             links.Remove(pLink);
         }
+
+
+		public void RemoveAllLinks ()
+		{
+			links.Clear ();
+		}
         
         public PathLink GetLinkTo(IPathNode pNode)
         {
