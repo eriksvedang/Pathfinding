@@ -99,6 +99,10 @@ namespace Pathfinding
             
             return null;
         }
+
+		public bool isIsolated() {
+			return links.Count == 0;
+		}
         
         #region IPoint Members
 
